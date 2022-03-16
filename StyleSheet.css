@@ -1,0 +1,128 @@
+*{margin: 0;
+padding: 0; 
+box-sizing: border-box;
+font-family: 'Poppins', sans-serif;
+color: #565656;
+display: block;}
+
+
+@media screen and (max-width: 1050px)
+{#menu
+    {flex-direction: row;}}
+       
+header{height: 96px;
+size: 100%;}
+
+div{min-height: 450px;
+    min-width: 280px;}
+
+h1,h2{font-family: 'Paytone One', sans-serif;}
+
+h1{color: white; 
+    font-size: 60px; 
+    margin-left: 71px;
+    margin-top: 408px;}
+
+
+h2{color: #0691F5; 
+    font-size: 40px;}
+
+a {color: #0691F5;
+    font-family: 'Paytone One', sans-serif;
+    transition: all 0.1s ease-out; 
+    text-decoration: none;}
+          
+a:hover, a:focus {background-color: #F4F4F4;}
+
+.menu{list-style-type: none; 
+    display: flex;
+    justify-content: right; 
+    align-items:center;}
+
+    nav li a {padding: 20px 30px;
+        border-right: 1px solid #f4f4f4;}
+
+#logo{margin-left: 18px;
+margin-bottom: 8px;
+background-color: white;
+display: flex;
+margin-right: 620px;
+align-items: center ;
+padding: 3px;}
+
+#Top{background: no-repeat center/100% url(Images/green_tech.png);
+        height: 809px;}
+
+#container{width: 544px;
+     height: 299px;
+     font-weight: 400;
+     line-height: 84px;
+     display: flex;
+     flex-direction:column;
+     align-items: center;
+     justify-content: center;
+    }
+
+#Main{
+    background: no-repeat center/100% url(Images/Ecotech.png);
+        width: 100%;
+        height: 852px;
+        border-top: solid white 14px;}
+
+#Greentech{
+    /* border: solid black 4px; */
+            background-color:rgba(255, 255, 255, 0.8);
+            padding: 42px;
+            width: 649px;
+            height: 582px;
+            left: 71px;
+            top: 408px;
+            font-weight: 400;
+            line-height: 40px;
+            margin-top: 260px;
+        margin-left: 934px;
+    }
+
+        #Texte_GTInnovation{
+            /* border: solid black 4px; */
+            width: 597px;
+            height: 360px;
+            display: flex;
+        justify-content: center;
+        flex-direction: column;
+        }
+
+        #GTInnovation{
+margin-right: 18px;
+/* border: solid black 4px; */
+width: 560px;
+height: 560px;}
+        
+#SectionGTI{
+    /* border: solid black 4px; */
+    display: flex;
+justify-content: space-around;
+align-items: center;
+margin: 50px;}
+
+#Section_Greenwashing{
+    width: 100%;
+}
+
+    #Voiture_électrique{
+/* border: solid black 4px; */
+    margin: 36px;
+/* margin-left: 50px; */
+display: flex;
+justify-content: space-around;
+align-items: center;
+margin: 50px;}
+
+#Greenwashing{
+    /* border: solid black 4px; */
+    width: 651px;
+    height: 282px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;}
+
