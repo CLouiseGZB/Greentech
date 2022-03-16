@@ -3,18 +3,19 @@ padding: 0;
 box-sizing: border-box;
 font-family: 'Poppins', sans-serif;
 color: #565656;
-display: block;}
+scroll-behavior: smooth;
+}
 
 
 @media screen and (max-width: 1050px)
 {#menu
-    {flex-direction: row;}}
+    {flex-direction: column;}}
        
 header{height: 96px;
 size: 100%;}
 
-div{min-height: 450px;
-    min-width: 280px;}
+div{min-height: 400px;
+    min-width: 559px;}
 
 h1,h2{font-family: 'Paytone One', sans-serif;}
 
@@ -112,7 +113,6 @@ margin: 50px;}
     #Voiture_électrique{
 /* border: solid black 4px; */
     margin: 36px;
-/* margin-left: 50px; */
 display: flex;
 justify-content: space-around;
 align-items: center;
@@ -126,3 +126,82 @@ margin: 50px;}
     justify-content: center;
     flex-direction: column;}
 
+    #Section_Greenwashing2{  
+        /* border: solid black 4px; */
+        display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 50px}
+
+#Greenwashing2{ 
+    /* border: solid black 4px; */
+    width: 597px;
+    height: 360px;
+    display: flex;
+justify-content: center;
+flex-direction: column;}
+
+#Réparation{
+/* border: solid black 4px; */
+display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 50px
+}
+
+#Solutions{
+    width: 597px;
+    height: 360px;
+    display: flex;
+justify-content: center;
+flex-direction: column;
+}
+
+#Réparatrice{
+    /* border: solid black 4px; */
+    margin-top: 7px;
+}
+
+#Image_carré{
+    /* border: solid black 4px; */
+    width: 100%;
+}
+
+#Section_Conclusion{
+    background: no-repeat center/100% url(Images/green_tech_2.png);
+height: 669px;
+display: flex;
+flex-direction: row-reverse;
+align-items:center
+}
+
+#Conclusion{
+    /* border: solid black 4px; */
+width: 544px;
+        height: 299px;
+        font-weight: 400;
+        line-height: 84px;
+        display: flex;
+        flex-direction:column;
+        justify-content: center;
+       }
+
+#Conclusion p{
+    color: white;
+font-weight: bold;
+font-size: larger;
+line-height: normal;}
+
+footer{ 
+    /* border: solid black 4px; */
+    border-top: solid #565656 2px;
+    margin-top: 30px;
+    width: 100%;
+    /* height: 139px; */
+    display: flex;
+     justify-content: center;  
+}
+
+footer p{
+    margin: 6px;
+}
