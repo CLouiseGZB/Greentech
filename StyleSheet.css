@@ -204,5 +204,5 @@ footer p{
 }
 
 @media screen and (max-width: 1050px)
-{#menu, h1, 
+{#menu, #Top 
     {flex-direction: column;  }}
