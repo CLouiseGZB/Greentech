@@ -22,11 +22,14 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     overflow-x: hidden;
     font-family: 'Poppins', sans-serif;
     color: var(--texte);
-    scroll-behavior: smooth;
 }
 
 /* =====================
