@@ -18,18 +18,23 @@
 
     <header>
         <nav>
-            <ul class="menu">
-                <span>
-                    <a href="#" id="logo">
-                        <img src="images/Green Modern Education Online Course Logo 1.png" alt="Logo">
-                    </a>
-                </span>
-                <li><a href="#Greentech">Greentech</a></li>
-                <li><a href="#Texte_GTInnovation">GreenTech Innovation</a></li>
-                <li><a href="#Greenwashing">Greenwashing</a></li>
-                <li><a href="#Solutions">Solutions</a></li>
-                <li><a href="#Conclusion">Conclusion</a></li>
-            </ul>
+            <div class="nav-inner">
+                <a href="#" id="logo">
+                    <img src="images/Green Modern Education Online Course Logo 1.png" alt="Logo">
+                </a>
+                <button class="hamburger" aria-label="Menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="menu">
+                    <li><a href="#Greentech">Greentech</a></li>
+                    <li><a href="#Texte_GTInnovation">GreenTech Innovation</a></li>
+                    <li><a href="#Greenwashing">Greenwashing</a></li>
+                    <li><a href="#Solutions">Solutions</a></li>
+                    <li><a href="#Conclusion">Conclusion</a></li>
+                </ul>
+            </div>
         </nav>
     </header>
 
@@ -77,13 +82,11 @@
         </div>
     </section>
 
-    <section>
-        <img id="Section_Greenwashing" src="Images/greenwashing.png"
-            alt="Bidon de pétrole jaune avec logo recyclage en vert">
-    </section>
-
     <section id="Voiture_électrique">
-        <img src="Images/Voiture électrique.png" alt="Voiture électrique">
+        <div id="Greenwashing_images">
+            <img src="Images/Voiture électrique.png" alt="Voiture électrique">
+            <img id="Section_Greenwashing" src="Images/greenwashing.png" alt="Bidon de pétrole jaune avec logo recyclage en vert">
+        </div>
 
         <div id="Greenwashing">
             <h2>Greenwashing</h2>
@@ -143,5 +146,24 @@
         <p>© Cloison Louisiane - Hackeuse 2022</p>
     </footer>
 
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const menu = document.querySelector('.menu');
+
+        hamburger.addEventListener('click', () => {
+            const isOpen = menu.classList.toggle('open');
+            hamburger.setAttribute('aria-expanded', isOpen);
+            hamburger.classList.toggle('active', isOpen);
+        });
+
+        // Fermer le menu au clic sur un lien
+        menu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.remove('open');
+                hamburger.classList.remove('active');
+                hamburger.setAttribute('aria-expanded', false);
+            });
+        });
+    </script>
 </body>
 </html>

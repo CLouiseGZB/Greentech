@@ -1,10 +1,79 @@
+/* =====================
+   VARIABLES & BASE
+===================== */
+
+:root {
+    --bleu: #0691F5;
+    --bleu-fonce: #0570c4;
+    --bleu-clair: #e8f4fe;
+    --texte: #3a3a3a;
+    --texte-leger: #6b7280;
+    --blanc: #ffffff;
+    --fond: #f9fafb;
+    --ombre: 0 4px 24px rgba(6, 145, 245, 0.08);
+    --ombre-forte: 0 8px 40px rgba(6, 145, 245, 0.15);
+    --radius: 16px;
+    --nav-height: 80px;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+body {
+    overflow-x: hidden;
     font-family: 'Poppins', sans-serif;
-    color: #565656;
+    color: var(--texte);
     scroll-behavior: smooth;
+}
+
+/* =====================
+   TYPOGRAPHIE
+===================== */
+
+h1, h2 {
+    font-family: 'Paytone One', sans-serif;
+}
+
+h1 {
+    color: var(--blanc);
+    font-size: clamp(32px, 5vw, 64px);
+    line-height: 1.15;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+}
+
+h2 {
+    color: var(--bleu);
+    font-size: clamp(24px, 3vw, 40px);
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+}
+
+h2::after {
+    content: '';
+    display: block;
+    width: 48px;
+    height: 4px;
+    background: var(--bleu);
+    border-radius: 2px;
+    margin-top: 10px;
+    transition: width 0.3s ease;
+}
+
+p {
+    line-height: 1.85;
+    color: var(--texte-leger);
+    font-size: 1rem;
+}
+
+a {
+    color: var(--bleu);
+    font-family: 'Paytone One', sans-serif;
+    text-decoration: none;
+    transition: all 0.2s ease;
 }
 
 /* =====================
@@ -15,68 +84,120 @@ header {
     width: 100%;
     position: sticky;
     top: 0;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     z-index: 100;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 1px 0 rgba(6, 145, 245, 0.1), 0 4px 20px rgba(0,0,0,0.06);
+    /* Nécessaire pour que le menu absolu se positionne par rapport au header */
+    position: sticky;
 }
 
-h1, h2 {
-    font-family: 'Paytone One', sans-serif;
+nav {
+    position: relative;
 }
 
-h1 {
-    color: white;
-    font-size: 60px;
-    line-height: 1.2;
-}
-
-h2 {
-    color: #0691F5;
-    font-size: 40px;
-    margin-bottom: 16px;
-}
-
-a {
-    color: #0691F5;
-    font-family: 'Paytone One', sans-serif;
-    transition: all 0.1s ease-out;
-    text-decoration: none;
-}
-
-a:hover, a:focus {
-    background-color: #F4F4F4;
-}
-
-.menu {
-    list-style-type: none;
+.nav-inner {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    height: 100%;
-    padding: 0 20px;
-}
-
-nav li a {
-    padding: 20px 30px;
-    border-right: 1px solid #f4f4f4;
-    display: block;
-}
-
-.menu span {
-    margin-right: auto;
+    height: var(--nav-height);
+    padding: 0 32px;
 }
 
 #logo {
-    margin-left: 18px;
-    background-color: white;
+    background-color: transparent;
     display: flex;
     align-items: center;
-    padding: 3px;
+    padding: 4px;
+    margin-right: auto;
 }
 
 #logo img {
-    height: 60px;
+    height: 52px;
     width: auto;
+    transition: transform 0.2s ease;
+}
+
+#logo:hover img {
+    transform: scale(1.05);
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+nav li {
+    list-style: none;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    margin-left: auto;
+    z-index: 200;
+}
+
+.hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--bleu);
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    transform-origin: center;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+nav li a {
+    padding: 8px 18px;
+    font-size: 1rem;
+    font-family: 'Paytone One', sans-serif;
+    color: var(--bleu);
+    display: block;
+    position: relative;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+nav li a::after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    left: 18px;
+    right: 18px;
+    height: 2px;
+    background: var(--bleu);
+    border-radius: 2px;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s ease;
+}
+
+nav li a:hover {
+    opacity: 0.75;
+    background: none;
+}
+
+nav li a:hover::after {
+    transform: scaleX(1);
 }
 
 /* =====================
@@ -88,7 +209,7 @@ nav li a {
 #Greenwashing,
 #Solutions,
 #Conclusion {
-    scroll-margin-top: 96px;
+    scroll-margin-top: var(--nav-height);
 }
 
 /* =====================
@@ -97,16 +218,31 @@ nav li a {
 
 #Top {
     background: no-repeat center / cover url(Images/green_tech.png);
-    height: 809px;
+    min-height: 100vh;
     display: flex;
     align-items: flex-end;
-    padding-bottom: 80px;
+    padding: 80px 80px;
+    position: relative;
+    margin-bottom: 40px;
+}
+
+#Top::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.55) 0%,
+        rgba(0, 0, 0, 0.1) 60%,
+        transparent 100%
+    );
+    pointer-events: none;
 }
 
 #container {
-    max-width: 544px;
-    padding: 24px;
-    margin-left: 71px;
+    position: relative;
+    z-index: 1;
+    max-width: 660px;
 }
 
 /* =====================
@@ -116,21 +252,33 @@ nav li a {
 #Main {
     background: no-repeat center / cover url(Images/Ecotech.png);
     width: 100%;
-    min-height: 852px;
-    border-top: solid white 14px;
+    min-height: 700px;
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    padding: 40px;
+    padding: 60px 80px;
+    position: relative;
+    margin-bottom: 40px;
+}
+
+#Main::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, transparent 30%, rgba(0,0,0,0.3) 100%);
+    pointer-events: none;
 }
 
 #Greentech {
-    background-color: rgba(255, 255, 255, 0.88);
-    padding: 42px;
-    max-width: 649px;
+    position: relative;
+    z-index: 1;
+    background-color: rgba(255, 255, 255, 0.93);
+    padding: 48px;
+    max-width: 580px;
     width: 100%;
-    font-weight: 400;
-    line-height: 1.8;
+    border-radius: var(--radius);
+    box-shadow: var(--ombre-forte);
+    border-left: 4px solid var(--bleu);
 }
 
 /* =====================
@@ -142,37 +290,73 @@ nav li a {
     justify-content: space-around;
     align-items: center;
     gap: 40px;
-    margin: 50px;
-    flex-wrap: wrap;
+    padding: 80px;
+    background-color: var(--fond);
 }
 
 #Texte_GTInnovation {
-    max-width: 597px;
+    max-width: 50%;
     width: 100%;
     display: flex;
     justify-content: center;
     flex-direction: column;
-    line-height: 1.8;
+    background: var(--blanc);
+    box-shadow: var(--ombre);
+    border-left: 4px solid var(--bleu);
+    padding: 40px;
+    border-radius: var(--radius);
+    transition: box-shadow 0.3s ease;
+}
+
+#Texte_GTInnovation:hover {
+    box-shadow: var(--ombre-forte);
 }
 
 #GTInnovation {
-    max-width: 400px;
+    max-width: 380px;
     width: 100%;
     height: auto;
+    filter: drop-shadow(0 8px 24px rgba(6, 145, 245, 0.15));
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+#GTInnovation:hover {
+    transform: translateY(-4px);
+    filter: drop-shadow(0 16px 32px rgba(6, 145, 245, 0.25));
 }
 
 /* =====================
    IMAGE GREENWASHING FULL WIDTH
 ===================== */
 
-#Section_Greenwashing {
+/* Ancien wrapper supprimé — image déplacée dans #Voiture_électrique */
+
+#Greenwashing_images {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+#Greenwashing_images img {
+    max-width: 340px;
     width: 100%;
-    display: block;
+    height: auto;
+    border-radius: var(--radius);
+    box-shadow: var(--ombre);
     object-fit: cover;
 }
 
+
+
+
+
+
+
+
+
 /* =====================
-   VOITURE ÉLECTRIQUE
+   VOITURE ELECTRIQUE
 ===================== */
 
 #Voiture_électrique {
@@ -180,23 +364,28 @@ nav li a {
     justify-content: space-around;
     align-items: center;
     gap: 40px;
-    margin: 50px;
-    flex-wrap: wrap;
+    padding: 80px;
+    background: var(--blanc);
 }
 
-#Voiture_électrique > img {
-    max-width: 400px;
-    width: 100%;
-    height: auto;
-}
+/* images dans #Greenwashing_images */
 
 #Greenwashing {
-    max-width: 651px;
+    max-width: 580px;
     width: 100%;
     display: flex;
     justify-content: center;
     flex-direction: column;
-    line-height: 1.8;
+    background: var(--blanc);
+    box-shadow: var(--ombre);
+    border-left: 4px solid var(--bleu);
+    padding: 40px;
+    border-radius: var(--radius);
+    transition: box-shadow 0.3s ease;
+}
+
+#Greenwashing:hover {
+    box-shadow: var(--ombre-forte);
 }
 
 /* =====================
@@ -208,27 +397,38 @@ nav li a {
     justify-content: space-around;
     align-items: center;
     gap: 40px;
-    margin: 50px;
-    flex-wrap: wrap;
+    padding: 80px;
+    background-color: var(--fond);
 }
 
 #Greenwashing2 {
-    max-width: 597px;
+    max-width: 560px;
     width: 100%;
     display: flex;
     justify-content: center;
     flex-direction: column;
-    line-height: 1.8;
+    background: var(--blanc);
+    box-shadow: var(--ombre);
+    border-left: 4px solid var(--bleu);
+    padding: 40px;
+    border-radius: var(--radius);
+    transition: box-shadow 0.3s ease;
+}
+
+#Greenwashing2:hover {
+    box-shadow: var(--ombre-forte);
 }
 
 #Section_Greenwashing2 > div:last-child img {
-    max-width: 400px;
+    max-width: 420px;
     width: 100%;
     height: auto;
+    border-radius: var(--radius);
+    box-shadow: var(--ombre);
 }
 
 /* =====================
-   RÉPARATION / SOLUTIONS
+   REPARATION / SOLUTIONS
 ===================== */
 
 #Réparation {
@@ -236,23 +436,34 @@ nav li a {
     justify-content: space-around;
     align-items: center;
     gap: 40px;
-    margin: 50px;
-    flex-wrap: wrap;
+    padding: 80px;
+    background: var(--blanc);
 }
 
 #Réparatrice {
-    max-width: 400px;
+    max-width: 420px;
     width: 100%;
     height: auto;
+    border-radius: var(--radius);
+    box-shadow: var(--ombre);
 }
 
 #Solutions {
-    max-width: 597px;
+    max-width: 560px;
     width: 100%;
     display: flex;
     justify-content: center;
     flex-direction: column;
-    line-height: 1.8;
+    background: var(--blanc);
+    box-shadow: var(--ombre);
+    border-left: 4px solid var(--bleu);
+    padding: 40px;
+    border-radius: var(--radius);
+    transition: box-shadow 0.3s ease;
+}
+
+#Solutions:hover {
+    box-shadow: var(--ombre-forte);
 }
 
 /* =====================
@@ -261,31 +472,50 @@ nav li a {
 
 #Section_Conclusion {
     background: no-repeat center / cover url(Images/green_tech_2.png);
-    min-height: 669px;
+    min-height: 600px;
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
-    padding: 40px;
+    padding: 60px 80px;
+    position: relative;
+}
+
+#Section_Conclusion::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to left, rgba(0,0,0,0.5) 0%, transparent 70%);
+    pointer-events: none;
 }
 
 #Conclusion {
-    max-width: 544px;
+    position: relative;
+    z-index: 1;
+    max-width: 520px;
     width: 100%;
-    padding: 32px;
+    padding: 48px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    border-radius: var(--radius);
+    border: 1px solid rgba(255,255,255,0.25);
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
 #Conclusion h2 {
-    color: white;
+    color: var(--blanc);
+}
+
+#Conclusion h2::after {
+    background: var(--blanc);
 }
 
 #Conclusion p {
-    color: white;
-    font-weight: bold;
-    font-size: 1.1rem;
-    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.92);
+    font-weight: 500;
+    font-size: 1.05rem;
+    line-height: 1.85;
 }
 
 /* =====================
@@ -293,51 +523,38 @@ nav li a {
 ===================== */
 
 footer {
-    border-top: solid #0691F5 2px;
-    margin-top: 30px;
+    border-top: 2px solid var(--bleu-clair);
+    padding: 24px 0;
     width: 100%;
     display: flex;
     justify-content: center;
+    background: var(--blanc);
 }
 
 footer p {
-    margin: 6px;
+    color: var(--texte-leger);
+    font-size: 0.9rem;
+    letter-spacing: 0.02em;
 }
 
 /* =====================
-   RESPONSIVE — TABLETTE (≤ 1024px)
+   ANIMATIONS
 ===================== */
 
-@media (max-width: 1024px) {
-    h1 {
-        font-size: 44px;
-    }
-
-    h2 {
-        font-size: 30px;
-    }
-
-    #container {
-        margin-left: 32px;
-    }
-
-    #Main {
-        justify-content: center;
-        padding: 30px;
-    }
-
-    nav li a {
-        padding: 20px 16px;
-        font-size: 14px;
-    }
-
-    #SectionGTI,
-    #Voiture_électrique,
-    #Section_Greenwashing2,
-    #Réparation {
-        margin: 30px;
-    }
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
 }
+
+#Greentech,
+#SectionGTI,
+#Voiture_électrique,
+#Section_Greenwashing2,
+#Réparation {
+    animation: fadeUp 0.6s ease both;
+}
+
+/* Breakpoint 1024px supprimé — rendu identique au 1440px */
 
 /* =====================
    RESPONSIVE — MOBILE (≤ 768px)
@@ -345,79 +562,133 @@ footer p {
 
 @media (max-width: 768px) {
 
-    /* NAV */
-    header {
-        height: auto;
-        min-height: 60px;
+    /* --- HAMBURGER --- */
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-inner {
+        height: var(--nav-height);
+        padding: 0 20px;
     }
 
     .menu {
+        display: flex;
         flex-direction: column;
-        align-items: flex-start;
-        padding: 10px 0;
+        align-items: stretch;
+        position: fixed;
+        top: var(--nav-height);
+        left: 0;
+        right: 0;
+        background: var(--blanc);
+        border-top: 2px solid var(--bleu-clair);
+        box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+        padding: 0;
         gap: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        z-index: 99;
     }
 
-    #logo {
-        margin-right: 0;
-        margin-bottom: 8px;
+    .menu.open {
+        max-height: 400px;
     }
 
-    #logo img {
-        height: 44px;
+    nav li {
+        width: 100%;
     }
 
     nav li a {
-        padding: 10px 20px;
-        border-right: none;
-        border-bottom: 1px solid #f4f4f4;
-        font-size: 14px;
+        padding: 16px 28px;
+        font-size: 1rem;
+        border-bottom: 1px solid var(--bleu-clair);
+        display: block;
+        width: 100%;
     }
 
-    /* HERO */
+    nav li a::after {
+        display: none;
+    }
+
+    #logo img {
+        height: 40px;
+    }
+
+    /* --- SECTIONS --- */
+    #Greentech,
+    #Texte_GTInnovation,
+    #Greenwashing,
+    #Solutions,
+    #Conclusion {
+        scroll-margin-top: var(--nav-height);
+    }
+
     #Top {
-        height: 420px;
-        padding-bottom: 40px;
-        align-items: flex-end;
+        min-height: 60vh;
+        padding: 40px 24px;
     }
 
-    #container {
-        margin-left: 20px;
-        margin-right: 20px;
-    }
-
-    h1 {
-        font-size: 30px;
-    }
-
-    h2 {
-        font-size: 26px;
-    }
-
-    /* GREENTECH */
     #Main {
         min-height: unset;
         justify-content: center;
-        padding: 20px;
+        padding: 40px 24px;
     }
 
     #Greentech {
-        padding: 24px;
         max-width: 100%;
+        padding: 28px;
     }
 
-    /* SECTIONS FLEX → COLONNE */
+    #SectionGTI,
+    #Voiture_électrique,
+    #Section_Greenwashing2,
+    #Réparation,
+    #Section_Conclusion {
+        padding: 40px 24px;
+    }
+}
+
+/* =====================
+   RESPONSIVE — MOBILE PETIT (≤ 600px)
+   Passage en colonne des sections
+===================== */
+
+@media (max-width: 600px) {
+
     #SectionGTI,
     #Voiture_électrique,
     #Section_Greenwashing2,
     #Réparation {
         flex-direction: column;
-        margin: 20px;
-        gap: 24px;
+        flex-wrap: wrap;
+        gap: 28px;
+        padding: 24px 16px;
     }
 
-    /* Sur mobile, images en premier pour voiture et trottinette */
+    #Texte_GTInnovation,
+    #Greenwashing,
+    #Greenwashing2,
+    #Solutions {
+        max-width: 100%;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 24px;
+    }
+
+    #Greenwashing_images img,
+    #GTInnovation,
+    #Réparatrice,
+    #Section_Greenwashing2 > div:last-child img {
+        max-width: 100%;
+        width: 100%;
+    }
+
     #Voiture_électrique {
+        flex-direction: column-reverse;
+    }
+
+    #Réparation {
         flex-direction: column-reverse;
     }
 
@@ -428,44 +699,39 @@ footer p {
         max-width: 100%;
     }
 
-    /* CONCLUSION */
+    #Texte_GTInnovation,
+    #Greenwashing,
+    #Greenwashing2,
+    #Solutions {
+        padding: 24px;
+    }
+
     #Section_Conclusion {
         flex-direction: column;
-        padding: 24px;
         min-height: unset;
-        justify-content: center;
     }
 
     #Conclusion {
-        padding: 20px;
-        background-color: rgba(0, 0, 0, 0.35);
-        border-radius: 8px;
-    }
-
-    #Conclusion p {
-        font-size: 1rem;
+        padding: 28px;
+        max-width: 100%;
     }
 }
 
 /* =====================
-   RESPONSIVE — TRÈS PETIT (≤ 480px)
+   RESPONSIVE — TRES PETIT (≤ 480px)
 ===================== */
 
 @media (max-width: 480px) {
-    h1 {
-        font-size: 24px;
-    }
-
-    h2 {
-        font-size: 22px;
-    }
-
     #Top {
-        height: 320px;
+        min-height: 50vh;
+        padding: 32px 16px;
     }
 
-    nav li a {
-        font-size: 12px;
-        padding: 8px 16px;
+    #SectionGTI,
+    #Voiture_électrique,
+    #Section_Greenwashing2,
+    #Réparation,
+    #Section_Conclusion {
+        padding: 32px 16px;
     }
 }
