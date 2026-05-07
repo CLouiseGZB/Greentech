@@ -1,204 +1,471 @@
-*{margin: 0;
-padding: 0; 
-box-sizing: border-box;
-font-family: 'Poppins', sans-serif;
-color: #565656;
-scroll-behavior: smooth;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    color: #565656;
+    scroll-behavior: smooth;
 }
 
+/* =====================
+   HEADER & NAV
+===================== */
 
-
-       
-header{height: 96px;
-size: 100%;}
-
-div{min-height: 400px;
-    min-width: 559px;}
-
-h1,h2{font-family: 'Paytone One', sans-serif;}
-
-h1{color: white; 
-    font-size: 60px; 
-    margin-left: 71px;
-    margin-top: 408px;}
-
-
-h2{color: #0691F5; 
-    font-size: 40px;}
-
-a {color: #0691F5;
-    font-family: 'Paytone One', sans-serif;
-    transition: all 0.1s ease-out; 
-    text-decoration: none;}
-          
-a:hover, a:focus {background-color: #F4F4F4;}
-
-.menu{list-style-type: none; 
-    display: flex;
-    justify-content: right; 
-    align-items:center;}
-
-    nav li a {padding: 20px 30px;
-        border-right: 1px solid #f4f4f4;}
-
-#logo{margin-left: 18px;
-margin-bottom: 8px;
-background-color: white;
-display: flex;
-margin-right: 620px;
-align-items: center ;
-padding: 3px;}
-
-#Top{background: no-repeat center/100% url(Images/green_tech.png);
-        height: 809px;}
-
-#container{width: 544px;
-     height: 299px;
-     font-weight: 400;
-     line-height: 84px;
-     display: flex;
-     flex-direction:column;
-     align-items: center;
-     justify-content: center;
-    }
-
-#Main{
-    background: no-repeat center/100% url(Images/Ecotech.png);
-        width: 100%;
-        height: 852px;
-        border-top: solid white 14px;}
-
-#Greentech{
-    /* border: solid black 4px; */
-            background-color:rgba(255, 255, 255, 0.8);
-            padding: 42px;
-            width: 649px;
-            height: 582px;
-            left: 71px;
-            top: 408px;
-            font-weight: 400;
-            line-height: 40px;
-            margin-top: 260px;
-        margin-left: 934px;
-    }
-
-        #Texte_GTInnovation{
-            /* border: solid black 4px; */
-            width: 597px;
-            height: 360px;
-            display: flex;
-        justify-content: center;
-        flex-direction: column;
-        }
-
-        #GTInnovation{
-margin-right: 18px;
-/* border: solid black 4px; */
-width: 560px;
-height: 560px;}
-        
-#SectionGTI{
-    /* border: solid black 4px; */
-    display: flex;
-justify-content: space-around;
-align-items: center;
-margin: 50px;}
-
-#Section_Greenwashing{
+header {
     width: 100%;
+    position: sticky;
+    top: 0;
+    background-color: white;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
-    #Voiture_électrique{
-/* border: solid black 4px; */
-    margin: 36px;
-display: flex;
-justify-content: space-around;
-align-items: center;
-margin: 50px;}
+h1, h2 {
+    font-family: 'Paytone One', sans-serif;
+}
 
-#Greenwashing{
-    /* border: solid black 4px; */
-    width: 651px;
-    height: 282px;
+h1 {
+    color: white;
+    font-size: 60px;
+    line-height: 1.2;
+}
+
+h2 {
+    color: #0691F5;
+    font-size: 40px;
+    margin-bottom: 16px;
+}
+
+a {
+    color: #0691F5;
+    font-family: 'Paytone One', sans-serif;
+    transition: all 0.1s ease-out;
+    text-decoration: none;
+}
+
+a:hover, a:focus {
+    background-color: #F4F4F4;
+}
+
+.menu {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    padding: 0 20px;
+}
+
+nav li a {
+    padding: 20px 30px;
+    border-right: 1px solid #f4f4f4;
+    display: block;
+}
+
+.menu span {
+    margin-right: auto;
+}
+
+#logo {
+    margin-left: 18px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    padding: 3px;
+}
+
+#logo img {
+    height: 60px;
+    width: auto;
+}
+
+/* =====================
+   SCROLL OFFSET (sticky nav)
+===================== */
+
+#Greentech,
+#Texte_GTInnovation,
+#Greenwashing,
+#Solutions,
+#Conclusion {
+    scroll-margin-top: 96px;
+}
+
+/* =====================
+   HERO
+===================== */
+
+#Top {
+    background: no-repeat center / cover url(Images/green_tech.png);
+    height: 809px;
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 80px;
+}
+
+#container {
+    max-width: 544px;
+    padding: 24px;
+    margin-left: 71px;
+}
+
+/* =====================
+   SECTION GREENTECH
+===================== */
+
+#Main {
+    background: no-repeat center / cover url(Images/Ecotech.png);
+    width: 100%;
+    min-height: 852px;
+    border-top: solid white 14px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 40px;
+}
+
+#Greentech {
+    background-color: rgba(255, 255, 255, 0.88);
+    padding: 42px;
+    max-width: 649px;
+    width: 100%;
+    font-weight: 400;
+    line-height: 1.8;
+}
+
+/* =====================
+   SECTION GTI
+===================== */
+
+#SectionGTI {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 40px;
+    margin: 50px;
+    flex-wrap: wrap;
+}
+
+#Texte_GTInnovation {
+    max-width: 597px;
+    width: 100%;
     display: flex;
     justify-content: center;
-    flex-direction: column;}
-
-    #Section_Greenwashing2{  
-        /* border: solid black 4px; */
-        display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin: 50px}
-
-#Greenwashing2{ 
-    /* border: solid black 4px; */
-    width: 597px;
-    height: 360px;
-    display: flex;
-justify-content: center;
-flex-direction: column;}
-
-#Réparation{
-/* border: solid black 4px; */
-display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin: 50px
+    flex-direction: column;
+    line-height: 1.8;
 }
 
-#Solutions{
-    width: 597px;
-    height: 360px;
-    display: flex;
-justify-content: center;
-flex-direction: column;
-}
-
-#Réparatrice{
-    /* border: solid black 4px; */
-    margin-top: 7px;
-}
-
-#Image_carré{
-    /* border: solid black 4px; */
+#GTInnovation {
+    max-width: 400px;
     width: 100%;
+    height: auto;
 }
 
-#Section_Conclusion{
-    background: no-repeat center/100% url(Images/green_tech_2.png);
-height: 669px;
-display: flex;
-flex-direction: row-reverse;
-align-items:center
+/* =====================
+   IMAGE GREENWASHING FULL WIDTH
+===================== */
+
+#Section_Greenwashing {
+    width: 100%;
+    display: block;
+    object-fit: cover;
 }
 
-#Conclusion{
-    /* border: solid black 4px; */
-width: 544px;
-        height: 299px;
-        font-weight: 400;
-        line-height: 84px;
-        display: flex;
-        flex-direction:column;
-        justify-content: center;
-       }
+/* =====================
+   VOITURE ÉLECTRIQUE
+===================== */
 
-#Conclusion p{
+#Voiture_électrique {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 40px;
+    margin: 50px;
+    flex-wrap: wrap;
+}
+
+#Voiture_électrique > img {
+    max-width: 400px;
+    width: 100%;
+    height: auto;
+}
+
+#Greenwashing {
+    max-width: 651px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    line-height: 1.8;
+}
+
+/* =====================
+   TROTTINETTES
+===================== */
+
+#Section_Greenwashing2 {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 40px;
+    margin: 50px;
+    flex-wrap: wrap;
+}
+
+#Greenwashing2 {
+    max-width: 597px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    line-height: 1.8;
+}
+
+#Section_Greenwashing2 > div:last-child img {
+    max-width: 400px;
+    width: 100%;
+    height: auto;
+}
+
+/* =====================
+   RÉPARATION / SOLUTIONS
+===================== */
+
+#Réparation {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 40px;
+    margin: 50px;
+    flex-wrap: wrap;
+}
+
+#Réparatrice {
+    max-width: 400px;
+    width: 100%;
+    height: auto;
+}
+
+#Solutions {
+    max-width: 597px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    line-height: 1.8;
+}
+
+/* =====================
+   CONCLUSION
+===================== */
+
+#Section_Conclusion {
+    background: no-repeat center / cover url(Images/green_tech_2.png);
+    min-height: 669px;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    padding: 40px;
+}
+
+#Conclusion {
+    max-width: 544px;
+    width: 100%;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#Conclusion h2 {
     color: white;
-font-weight: bold;
-font-size: larger;
-line-height: normal;}
+}
 
-footer{ 
-    /* border: solid black 4px; */
+#Conclusion p {
+    color: white;
+    font-weight: bold;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+/* =====================
+   FOOTER
+===================== */
+
+footer {
     border-top: solid #0691F5 2px;
     margin-top: 30px;
     width: 100%;
     display: flex;
-     justify-content: center;  
+    justify-content: center;
 }
 
-footer p{
+footer p {
     margin: 6px;
+}
+
+/* =====================
+   RESPONSIVE — TABLETTE (≤ 1024px)
+===================== */
+
+@media (max-width: 1024px) {
+    h1 {
+        font-size: 44px;
+    }
+
+    h2 {
+        font-size: 30px;
+    }
+
+    #container {
+        margin-left: 32px;
+    }
+
+    #Main {
+        justify-content: center;
+        padding: 30px;
+    }
+
+    nav li a {
+        padding: 20px 16px;
+        font-size: 14px;
+    }
+
+    #SectionGTI,
+    #Voiture_électrique,
+    #Section_Greenwashing2,
+    #Réparation {
+        margin: 30px;
+    }
+}
+
+/* =====================
+   RESPONSIVE — MOBILE (≤ 768px)
+===================== */
+
+@media (max-width: 768px) {
+
+    /* NAV */
+    header {
+        height: auto;
+        min-height: 60px;
+    }
+
+    .menu {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 0;
+        gap: 0;
+    }
+
+    #logo {
+        margin-right: 0;
+        margin-bottom: 8px;
+    }
+
+    #logo img {
+        height: 44px;
+    }
+
+    nav li a {
+        padding: 10px 20px;
+        border-right: none;
+        border-bottom: 1px solid #f4f4f4;
+        font-size: 14px;
+    }
+
+    /* HERO */
+    #Top {
+        height: 420px;
+        padding-bottom: 40px;
+        align-items: flex-end;
+    }
+
+    #container {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    h2 {
+        font-size: 26px;
+    }
+
+    /* GREENTECH */
+    #Main {
+        min-height: unset;
+        justify-content: center;
+        padding: 20px;
+    }
+
+    #Greentech {
+        padding: 24px;
+        max-width: 100%;
+    }
+
+    /* SECTIONS FLEX → COLONNE */
+    #SectionGTI,
+    #Voiture_électrique,
+    #Section_Greenwashing2,
+    #Réparation {
+        flex-direction: column;
+        margin: 20px;
+        gap: 24px;
+    }
+
+    /* Sur mobile, images en premier pour voiture et trottinette */
+    #Voiture_électrique {
+        flex-direction: column-reverse;
+    }
+
+    #GTInnovation,
+    #Voiture_électrique > img,
+    #Réparatrice,
+    #Section_Greenwashing2 > div:last-child img {
+        max-width: 100%;
+    }
+
+    /* CONCLUSION */
+    #Section_Conclusion {
+        flex-direction: column;
+        padding: 24px;
+        min-height: unset;
+        justify-content: center;
+    }
+
+    #Conclusion {
+        padding: 20px;
+        background-color: rgba(0, 0, 0, 0.35);
+        border-radius: 8px;
+    }
+
+    #Conclusion p {
+        font-size: 1rem;
+    }
+}
+
+/* =====================
+   RESPONSIVE — TRÈS PETIT (≤ 480px)
+===================== */
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 24px;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+
+    #Top {
+        height: 320px;
+    }
+
+    nav li a {
+        font-size: 12px;
+        padding: 8px 16px;
+    }
 }
